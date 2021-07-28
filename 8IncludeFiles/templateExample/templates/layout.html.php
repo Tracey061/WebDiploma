@@ -21,6 +21,7 @@
             <li><a class="reviews" href="reviews.php">Reviews</a></li>
             <li><a class="contact" href="contact.php">Contact Us</a></li>
             <li><a class="myHomePage" href="myHomePage.php">myHomePage</a></li>
+            <li><a class="new" href="new.php">new</a></li>
         </ul>
     </nav>
     <main class="wrapper">
