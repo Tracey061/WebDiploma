@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+    <h1>Thank you</h1>
+    <p>Thank you for registering. Here is the information you submitted:</p>
+    <dl>
+        <dt>First name</dt>
+        <dd><?= $_POST["firstName"]?></dd>
+
+        <dt>Last name</dt>
+        <dd><?= $_POST["lastName"]?></dd>
+
+        <dt>Password</dt>
+        <dd><?= $_POST["password1"]?></dd>
+
+        <dt>Retyped password</dt>
+        <dd><?= $_POST["password2"]?></dd>
+
+        <dt>Study Mode</dt>
+        <dd><?= $_POST["mode"]?></dd>
+
+        <dt>Course</dt>
+        <dd><?= $_POST["course"]?></dd>
+
+        <dt>Do you want to receive our newsletter?</dt>
+        <dd><?= $_POST["newsletter"]?></dd>
+        
+        <dt>Comments</dt>
+        <dd><?= $_POST["comments"]?></dd>
+    </dl>
+    </main>
+    
+</body>
+</html>
