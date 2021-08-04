@@ -1,24 +1,21 @@
 <?php
-$title = "Registration form";
-
+$title = "Dog Order form";
 //start buffer
 ob_start();
 
 if(isset($_POST["submitButton"]))
 {
-    $redirect = processForm([]);
-    // processForm([]);
+    processForm();
 }
 else
 {
-    $redirect = false;
     $missingFields = [];
-    include "templates/registrationForm.html.php";
+    include "templates/dogOrderForm.html.php";
 }
 
 function processForm()
 {
-    $requiredFields = ["firstName", "lastName", "email", "semester"];
+    $requiredFields = ["Name", "Address", "Gender"];
     $missingFields = [];
 
     foreach($requiredFields as $requiredField)
@@ -35,16 +32,12 @@ function processForm()
         // print_r($missingFields);
         //include missing fields file
         // include "templates/displayMissingFields.html.php";
-        include "templates/registrationForm.html.php";
-        $redirect = false;
+        include "templates/dogOrderForm.html.php";
     }
     else
     {
-        // include "templates/confirmation.html.php";
-        $redirect = true;
+        include "templates/confirmation.html.php";
     }
-
-    return $redirect;
 }
 
 function validateField($fieldName, $missingFields)
@@ -79,7 +72,7 @@ function setSelected($fieldName,$fieldValue)
     }
 }
 
-$output = ob_get_clean();
 
+$output = ob_get_clean();
 include "templates/layout.html.php";
 ?>

@@ -1,0 +1,29 @@
+*
+{
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+	font-family: Fantasy,Arial, Helvetica, sans-serif;
+}
+
+p 
+{
+	font-size: large;
+}
+.greenFor3
+{
+	color:green;
+}
+
+.redFor5
+{
+	color:red;
+}
+
+.purpleForBoth
+{
+	color:purple;
+}

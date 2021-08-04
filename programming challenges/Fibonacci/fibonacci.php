@@ -26,12 +26,10 @@
     }
 
     $resultArray = fibonacciFun(0,1,20);
-    // print_r($resultArray);
 
     for($i=0;$i<count($resultArray);$i++)
     {
-        $output=$resultArray[$i];
-        include "templates/fibonacci.html.php";
+        echo $resultArray[$i]."<br>";
     }
     ?>
 </body>
