@@ -1,0 +1,42 @@
+按照ariane的代码修改的适用我的numberGuessing.php  大小判断逻辑
+最终的文本中if else的逻辑根据之前的思路做了修改。跟ariane的稍有不同。
+
+//one guess has been used up
+				$guessLeft = $guessLeft - 1;
+
+				//check if the guess matches the random number
+				if($guess < $random)
+				{
+					$message = "Too low";
+
+					if($guessLeft > 0)
+					{
+						//display form if number of
+						include "templates/numberGuessing.html.php";
+					}
+					else
+					{
+						$message = "Sorry there are no more guesses";
+						include "templates/encourage.html.php";
+					}
+				}
+				elseif($guess > $random)
+				{
+					$message = "Too high";
+
+					if($guessLeft > 0)
+					{
+						//display form if number of
+						include "templates/numberGuessing.html.php";
+					}
+					else
+					{
+						$message = "Sorry there are no more guesses";
+						include "templates/encourage.html.php";
+					}
+				}
+				else
+				{
+					$message = "Correct!!!!!";
+					include "templates/win.html.php";
+				}	
