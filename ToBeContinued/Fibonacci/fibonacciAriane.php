@@ -10,24 +10,16 @@
     <?php
 
     $first = 0;
-    $seconde = 1;
+    $second = 1;
 
-    for($m=2;$m<$k+2;$m++)
+    for($m=1;$m<=20;$m++)
     {
-        $sum=$i+$j;
-        $fibonacciArray[$m]=$sum;
-        $i=$j;
-        $j=$sum;
+        $current=$first+$second;
+        echo $current."</br>";
+        $first = $second;
+        $second = $current;
     }
-        
 
-
-    $resultArray = fibonacciFun(0,1,20);
-
-    for($i=0;$i<count($resultArray);$i++)
-    {
-        echo $resultArray[$i]."<br>";
-    }
     ?>
 </body>
 </html>
