@@ -1,0 +1,10 @@
+.sqltable {
+    width:800px;
+    border:1px solid red;
+    text-align: left;
+}
+
+tr:nth-child(odd)
+{
+    color:green
+}

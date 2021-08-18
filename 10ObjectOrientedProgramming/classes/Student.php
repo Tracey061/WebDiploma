@@ -3,9 +3,16 @@ class Student
 {
     public $firstName;
     public $lastName;
+    public $age;
     public $course;
     public $units;
     private $_completed = 0;
+
+    public function _construct($firstName,$lastName)
+    {
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+    }
 
     public function completeUnit($grade)
     {
