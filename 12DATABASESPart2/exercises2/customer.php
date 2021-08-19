@@ -12,24 +12,13 @@ $db = new DBAccess($dsn,$username,$password);
 
 $db->connect();
 
+//get customerid for later query
 $sql = "select CustomerID,CompanyName,ContactName from customers";
 
 $rows = $db->executeSQL($sql);
 
 ob_start();
 include "templates/customer.html.php";
-
-if(isset($_GET["id"]))
-{	
-    echo "get order id";
-    //get category name
-    $customerID = $_GET["id"];
-    $sql = "select OrderID,OrderDate from orders where customerID = '{$customerID}'";
-    $rows = $db->executeSQL($sql);
-            
-    //display products
-    include "templates/customerOrder.html.php";
-}
 
 $output = ob_get_clean();
 

@@ -1,8 +1,8 @@
 <?php
 
-require_once "classes/DBAccess.php";
+require_once "../classes/DBAccess.php";
 
-$title = "customer and order";
+$title = "display employee information";
 
 $dsn = "mysql:host=localhost;dbname=northwind;charset=utf8";
 $username = "root";
@@ -12,12 +12,12 @@ $db = new DBAccess($dsn,$username,$password);
 
 $db->connect();
 
-$sql = "select CustomerID,CompanyName,ContactName from customers";
+$sql = "select FirstName,LastName,Title from employees";
 
 $rows = $db->executeSQL($sql);
 
 ob_start();
-include "templates/customer.html.php";
+include "templates/employee.html.php";
 
 $output = ob_get_clean();
 

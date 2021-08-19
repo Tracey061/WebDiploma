@@ -12,21 +12,18 @@ $db = new DBAccess($dsn,$username,$password);
 
 $db->connect();
 
-// $sql = "select CustomerID,CompanyName,ContactName from customers";
-
-// $rows = $db->executeSQL($sql);
-
 ob_start();
 
 if(isset($_GET["id"]))
 {	
-    //get category name
-    $orderID = $_GET["id"];
-    $sql = "select p.ProductName,o.Quantity,o.UnitPrice FROM orderdetails o,products p  WHERE o.OrderID =  '{$orderID}'"." and p.ProductID = o.ProductID";
+    // echo "get order id";
+    //get customerid
+    $customerID = $_GET["id"];
+    $sql = "select OrderID,OrderDate from orders where customerID = '{$customerID}'";
     $rows = $db->executeSQL($sql);
             
-    //display products
-    include "templates/orders.html.php";
+    //display customerorder
+    include "templates/customerOrder.html.php";
 }
 
 $output = ob_get_clean();

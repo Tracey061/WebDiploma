@@ -10,30 +10,38 @@ $password = "";
 
 $db = new DBAccess($dsn,$username,$password);
 
-$db->connect();
+$pdo = $db->connect();
 
 $sql = "select CategoryName, CategoryId from Categories";
+$stmt = $pdo->prepare($sql);
+$rows = $db->executeSQL($stmt);
 
-$rows = $db->executeSQL($sql);
 
 ob_start();
 include "templates/categories.html.php";
 
-// $categoryName = "hello";
-
 //check if there is a query string field named id
-// if(isset($_GET["id"]))
-if(isset($_GET["id"]) && isset($_GET["name"]))
+if(isset($_GET["id"]))
 {	
     //get category name
     // $sql = "select categoryName from Categories where categoryID = " . $_GET["id"];
     // $categoryName = $db->executeSQLReturnOneValue($sql);
-    $categoryName = $_GET["name"];
+    // $categoryName = $_GET["name"];
+    $sql = "select categoryName from Categories where categoryID = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(":id",$_GET["id"]);
+    $categoryName = $db->executeSQLReturnOneValue($stmt);
+    
 
     //get products
-    $sql = "select productName, unitPrice from Products where categoryID = " . $_GET["id"];
+    // $sql = "select productName, unitPrice from Products where categoryID = " . $_GET["id"];
+    // $rows = $db->executeSQL($sql);
 
-    $rows = $db->executeSQL($sql);
+    $sql = "select productName, unitPrice from Products where categoryID = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(":id",$_GET["id"]);
+    $rows = $db->executeSQL($stmt);
+    
             
     //display products
     include "templates/products.html.php";

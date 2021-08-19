@@ -3,6 +3,6 @@
         $orderID = $row["OrderID"];
         $orderDate = $row["OrderDate"];
     ?>
-    <li><a href="orders.php?id=<?= $orderID ?>"><?= $orderID ?>&&<?= $orderDate?></a></li>
+    <li><a href="orders.php?id=<?= $orderID ?>"><?= $orderID ?></a> <?= $orderDate?></li>
     <?php endforeach; ?>
 </ul> 
