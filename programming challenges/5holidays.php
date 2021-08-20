@@ -10,15 +10,26 @@
     <ul>
     <?php
     $today = new DateTime();
-    $holiday = new DateTime("2021-09-20");
-    $interval = $holiday->diff($today);
+
+    print_r($today);
     
 
-    echo $interval->days;
+    $holiday = new DateTime("2021-09-20");
+    $interval = $holiday->diff($today);
+    // print_r($interval);
 
-    $interval->weeks = (int)($interval->days/7);
-    echo $interval->weeks;
+    $days = $interval->days;
+    $hours = $interval->h;
+
+    echo $hours;
+
+    $weeks = (int)($days/7);
+    echo $weeks;
+
+    $weeksAndDays = $days%7;
     ?>
+    <p>there are <?= $days?> day(s) until the next holiday</p>
+    <p>there are <?= $weeks?> week(s) and <?= $weeksAndDays?> day(s) until the next holiday</p>
     </ul>
 </body>
 </html>

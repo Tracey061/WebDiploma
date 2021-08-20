@@ -8,3 +8,5 @@
     <li><?= $productName ?> <?= $unitPrice ?></li>
     <?php endforeach; ?>
 </ul>
+
+<p>Number of products <?= $count ?></p>

@@ -1,6 +1,6 @@
 <?php
 
-require_once "../classes/DBAccess.php";
+require_once "../classes/DBAccessSafe.php";
 
 $title = "customer and order";
 
@@ -10,16 +10,18 @@ $password = "";
 
 $db = new DBAccess($dsn,$username,$password);
 
-$db->connect();
+$pdo = $db->connect();
 
 ob_start();
 
 if(isset($_GET["id"]))
 {	
     //get orderid
-    $orderID = $_GET["id"];
-    $sql = "select p.ProductName,o.Quantity,o.UnitPrice FROM orderdetails o,products p  WHERE o.OrderID =  '{$orderID}'"." and p.ProductID = o.ProductID";
-    $rows = $db->executeSQL($sql);
+    // $orderID = $_GET["id"];
+    $sql = "select p.ProductName,o.Quantity,o.UnitPrice FROM orderdetails o,products p  WHERE o.OrderID = :id and p.ProductID = o.ProductID";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(":id",$_GET["id"]);
+    $rows = $db->executeSQL($stmt);
             
     //display order and product details
     include "templates/orders.html.php";

@@ -1,6 +1,6 @@
 <?php
 
-require_once "../classes/DBAccess.php";
+require_once "../classes/DBAccessSafe.php";
 
 $title = "customer and order";
 
@@ -10,7 +10,7 @@ $password = "";
 
 $db = new DBAccess($dsn,$username,$password);
 
-$db->connect();
+$pdo = $db->connect();
 
 ob_start();
 
@@ -18,9 +18,14 @@ if(isset($_GET["id"]))
 {	
     // echo "get order id";
     //get customerid
-    $customerID = $_GET["id"];
-    $sql = "select OrderID,OrderDate from orders where customerID = '{$customerID}'";
-    $rows = $db->executeSQL($sql);
+    // $customerID = $_GET["id"];
+    // $sql = "select OrderID,OrderDate from orders where customerID = '{$customerID}'";
+    
+    $sql = "select OrderID,OrderDate from orders where customerID = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(":id",$_GET["id"]);
+
+    $rows = $db->executeSQL($stmt);
             
     //display customerorder
     include "templates/customerOrder.html.php";

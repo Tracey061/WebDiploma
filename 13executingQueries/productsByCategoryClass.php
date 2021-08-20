@@ -41,7 +41,11 @@ if(isset($_GET["id"]))
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(":id",$_GET["id"]);
     $rows = $db->executeSQL($stmt);
-    
+
+    $sql = "select count(*) from Products where categoryID = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(":id",$_GET["id"]);
+    $count = $db->executeSQLReturnOneValue($stmt);
             
     //display products
     include "templates/products.html.php";

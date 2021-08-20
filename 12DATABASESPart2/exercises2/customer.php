@@ -1,6 +1,6 @@
 <?php
 
-require_once "../classes/DBAccess.php";
+require_once "../classes/DBAccessSafe.php";
 
 $title = "customer and order";
 
@@ -10,12 +10,14 @@ $password = "";
 
 $db = new DBAccess($dsn,$username,$password);
 
-$db->connect();
+$pdo = $db->connect();
 
 //get customerid for later query
 $sql = "select CustomerID,CompanyName,ContactName from customers";
 
-$rows = $db->executeSQL($sql);
+$stmt = $pdo->prepare($sql);
+
+$rows = $db->executeSQL($stmt);
 
 ob_start();
 include "templates/customer.html.php";
