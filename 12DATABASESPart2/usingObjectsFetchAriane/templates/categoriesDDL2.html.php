@@ -17,7 +17,7 @@
 		}
 		?>
 
-		<option value="productsByCategoryV2.php?id=<?= $id ?>" <?= $selected ?>><?=  $name ?></option>
+		<option value="productsByCategoryV2.php?id=<?= $id ?>"<?= $selected ?>><?=  $name ?></option>
 				
 	<?php endforeach; ?>
 	</select>
