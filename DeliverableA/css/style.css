@@ -9,60 +9,46 @@ body
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Headings */
-h1 
-{  
-	color: #666; 
-	font-size: 1.5em; 
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
+.companyLogo {
+	text-indent: -100000em;
+	overflow: hidden;
+	line-height: 1px;
 }
 
-p
-{
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-	display: flex;
+.coming {
+	font-size: 2em;
+	font-family: fantasy,'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	color:darkblue;
 }
 
-header, footer
-{
-	background-color: #CCC;
-	padding: 1em;
+main p {
+	line-height: 2em;
 }
-
 section
 {
 	padding: 1em;
 }
 
-/* Navigation */
-
-nav 
-{
-	text-align: right;
-}
-nav li
-{
-	display: inline-block;
-	padding-right: 1em;
-}
-
-nav a
-{
-	color: #000099;
-}
-
-
 /* Forms */
 label 
 { 
-	text-align: right;
 	margin: 0.6em 0.6em 0 0;
-	width: 300px; 
-	padding: 0.2em;
+	width: 100px; 
+	padding: 0.2em;	
 }
 
+#lastName,#firstName {
+	margin-left: 27px;
+}
+
+#question {
+	margin-left: 17px;
+}
+
+.questionDiv {
+	display: flex;
+	align-items: center;
+}
 input, select, textarea 
 { 
 	margin: 1em 0 0 0; 
@@ -74,12 +60,8 @@ input, fieldset, textarea, select
 	padding: 0.5em;
 }
 
-legend
-{
-	color: #666;
-}
 
-input[type=submit], input[type=reset], input[type=radio]
+input[type=submit], input[type=reset]
 { 
 	margin-right: 20px;
 }
@@ -87,12 +69,6 @@ input[type=submit], input[type=reset], input[type=radio]
 input[type=submit], input[type=reset]
 { 
 	margin-bottom: 20px;
-}
-
-.radioLabel
-{
-	width: auto;
-	display: inline;
 }
 
 .error
