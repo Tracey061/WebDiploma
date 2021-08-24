@@ -1,0 +1,22 @@
+body
+{
+	font-family: Arial, Helvetica, sans-serif;
+	background: greenyellow;
+}
+
+article
+{
+	border-bottom: 1px solid #ccc;
+}
+
+#wrapper
+{
+	width: 960px;
+	margin: auto;
+}
+
+.photo 
+{
+	float: right;
+	margin-left: 20px;
+}
