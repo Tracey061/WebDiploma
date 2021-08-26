@@ -1,0 +1,21 @@
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+article
+{
+    border-bottom: 1px solid #CCC;
+}
+
+#wrapper
+{
+    width: 960px;
+    margin: auto;
+}
+
+.photo
+{
+    float: right;
+    margin-left: 10px;
+}
