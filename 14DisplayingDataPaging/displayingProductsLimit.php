@@ -33,7 +33,7 @@ else
 }
 
 $rows = $db->executeSQL($stmt);
-include "templates/productDetails.html.php";
+include "templates/productsDetails.html.php";
 include "templates/limitForm.html.php";
 
 $output = ob_get_clean();

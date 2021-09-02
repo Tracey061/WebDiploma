@@ -1,8 +1,8 @@
 <?php
 require_once "classes/DBAccess.php";
 
-$title = "Employees with paging";
-$pageHeading = "Employees paging";
+$title = "product buttons";
+$pageHeading = "Product buttons";
 
 $dsn = "mysql:host=localhost;dbname=northwind;charset=utf8";
 $username = "root";
@@ -12,15 +12,18 @@ $db = new DBAccess($dsn, $username, $password);
 
 $pdo = $db->connect();
 
-if(isset($_POST["next"]) && isset($_POST["start"]))
-{
-    $start = (int)$_POST["start"] + 3;
-}
-elseif(isset($_POST["prev"]) && isset($_POST["start"]))
-{
-    $start = (int)$_POST["start"] - 3;
+ob_start();
 
-    if ($start < 0)
+if(isset($_POST["page"]))
+{
+    $start = (int)$_POST["page"];
+    
+    if($start > 1)
+    {
+        $start = ($start-1) * 5;
+
+    }
+    else
     {
         $start = 0;
     }
@@ -30,17 +33,17 @@ else
     $start = 0;
 }
 
-$sql = "select photoPath,firstName, lastName from employees limit :start,3";
+$sql = "select productId,productName, unitPrice,unitsInStock from products limit :start,5";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(":start",$start,PDO::PARAM_INT);
 $rows = $db->executeSQL($stmt);
 
-$sql = "select count(*) from employees";
+$sql = "select count(*) from products";
 $stmt = $pdo->prepare($sql);
 $count = $db->executeSQLReturnOneValue($stmt);
 
-include "templates/employeeDetailsPaging.html.php";
-include "templates/employeesNextPrevlimitForm.html.php";
+include "templates/productsDetails.html.php";
+include "templates/buttonsForm.html.php";
 
 $output = ob_get_clean();
 

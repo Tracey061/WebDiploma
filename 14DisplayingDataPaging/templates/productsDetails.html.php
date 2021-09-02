@@ -1,4 +1,4 @@
-<h2>Displaying 5 Products from row <?= $start+1 ?></h2>
+<!-- <h2>Displaying 5 Products from row <?= $start+1 ?></h2> -->
 <?php foreach ($rows as $row):
     $productId = $row["productId"];
     $productName = $row["productName"];

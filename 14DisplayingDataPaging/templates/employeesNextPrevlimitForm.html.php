@@ -1,6 +1,6 @@
 <form action="dispalyEmployeesPrevNext.php" method="post">     
-    <input type="number" name="start" value=<?=$start ?>>
-    <input type="number" name="count" value=<?=$count ?>>
+    <input type="hidden" name="start" value=<?=$start ?>>
+    <input type="hidden" name="count" value=<?=$count ?>>
     <?php
     if ($start): ?>
         <input type="submit" name="prev" value="<">
